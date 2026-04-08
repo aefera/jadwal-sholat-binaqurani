@@ -44,8 +44,8 @@ body {
   width: 100%;
   height: 100%;
 
-  /* Ganti dengan path gambar Anda */
-  background-image: url("../image/mahjisd.jpeg");
+  /* DIUBAH: Langsung ke file tanpa folder image */
+  background-image: url("mahjisd.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -113,7 +113,6 @@ footer {
 .top-info {
   background-color: var(--bg-white);
   display: flex;
-  /* Gunakan space-around untuk membagi ruang seimbang antara 3 kolom */
   justify-content: space-around;
   align-items: center;
   padding: 25px;
@@ -123,7 +122,6 @@ footer {
 }
 
 .location-display {
-  /* Bagian Kiri: Lokasi & Tanggal */
   flex: 1;
 }
 
@@ -135,7 +133,6 @@ footer {
   color: var(--text-dark);
 }
 
-/* Styling untuk Grup Tanggal (Masehi & Hijriyah) */
 .tanggal-group {
   display: flex;
   flex-direction: column;
@@ -158,7 +155,6 @@ footer {
 }
 
 .clock-display {
-  /* Bagian Kanan: Jam Digital */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -169,10 +165,8 @@ footer {
   font-size: 2.8em;
   font-weight: 700;
   color: var(--primary-blue);
-  /* Hilangkan margin-top, karena sekarang terpisah dari analog */
 }
 
-/* --- JAM ANALOG (Sekarang di tengah-tengah flex container) --- */
 .analog-clock {
   width: 80px;
   height: 80px;
@@ -180,7 +174,6 @@ footer {
   border-radius: 50%;
   position: relative;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  /* Atur flex agar tidak merentang */
   flex-shrink: 0;
 }
 
@@ -230,9 +223,7 @@ footer {
   margin-left: -0.5px;
   margin-top: -0.5px;
 }
-/* --------------------------------------- */
 
-/* RUNNING TEXT STYLING */
 .running-text-container {
   background-color: #f7f7f7;
   color: var(--text-dark);
@@ -254,16 +245,10 @@ footer {
 }
 
 @keyframes scroll-text {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
 }
-/* END OF RUNNING TEXT STYLING */
 
-/* Info Sholat Berikutnya */
 .next-prayer-info {
   text-align: center;
   background: var(--next-prayer-gradient);
@@ -288,13 +273,11 @@ footer {
   font-weight: 700;
 }
 
-/* Sorotan Hitung Mundur MERAH (Saat 5 menit terakhir) */
 .countdown-near-end {
-  background: linear-gradient(135deg, #e74c3c, #c0392b); /* Merah gelap */
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
   box-shadow: 0 6px 15px rgba(231, 76, 60, 0.5);
 }
 
-/* Desain Kartu Jadwal Sholat (LAYOUT 4-3) */
 .jadwal-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -335,7 +318,6 @@ footer {
   color: var(--primary-blue);
 }
 
-/* Sorotan untuk Sholat Berikutnya (Kartu) */
 .next-prayer-highlight {
   background: var(--next-prayer-gradient);
   color: var(--bg-white);
@@ -344,14 +326,9 @@ footer {
   border-color: var(--accent-green);
 }
 
-.next-prayer-highlight h2 {
-  color: rgba(255, 255, 255, 0.9);
-}
-.next-prayer-highlight p {
-  color: var(--bg-white);
-}
+.next-prayer-highlight h2 { color: rgba(255, 255, 255, 0.9); }
+.next-prayer-highlight p { color: var(--bg-white); }
 
-/* Fitur Pencarian */
 .location-feature {
   background-color: var(--bg-white);
   padding: 20px;
@@ -363,10 +340,9 @@ footer {
   justify-content: center;
   align-items: center;
 }
-.search-box {
-  display: flex;
-  gap: 5px;
-}
+
+.search-box { display: flex; gap: 5px; }
+
 #search-input {
   font-family: var(--font-body);
   padding: 10px;
@@ -375,6 +351,7 @@ footer {
   font-size: 1em;
   flex-grow: 1;
 }
+
 #search-button,
 #detect-location-button {
   font-family: var(--font-heading);
@@ -387,27 +364,17 @@ footer {
   transition: background-color 0.3s;
   font-weight: 600;
 }
-#search-button {
-  background-color: var(--accent-blue-light);
-}
-#detect-location-button {
-  background-color: var(--accent-green);
-}
 
-#search-button:hover {
-  background-color: #0d6efd;
-}
-#detect-location-button:hover {
-  background-color: #5aa737;
-}
+#search-button { background-color: var(--accent-blue-light); }
+#detect-location-button { background-color: var(--accent-green); }
 
-/* Hasil Pencarian */
-.search-results {
+#search-results {
   margin-top: 15px;
   max-height: 150px;
   overflow-y: auto;
   width: 100%;
 }
+
 .result-item {
   font-family: var(--font-body);
   padding: 10px;
@@ -417,125 +384,39 @@ footer {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.result-item:hover {
-  background-color: #e0e0e0;
-}
 
-/* Desain Responsif */
-
-/* RESPONSIVE TOP INFO FIX */
+/* Responsif */
 @media (max-width: 768px) {
-  .top-info {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-    /* Ubah dari space-around ke flex-start/center pada mobile */
-    justify-content: center;
-  }
-  .location-display,
-  .clock-display {
-    text-align: center;
-    flex: none;
-    width: 100%;
-  }
-  .tanggal-group {
-    align-items: center;
-  }
-  /* Geser Jam Analog kembali di bawah jam digital untuk mobile */
-  .top-info {
-    flex-direction: column;
-    /* Mengatur ulang urutan untuk tampilan vertikal */
-  }
-  .location-display {
-    order: 1;
-  }
-  .analog-clock {
-    order: 2;
-    margin: 15px 0;
-  }
-  .clock-display {
-    order: 3;
-  }
-
-  /* Grid Card 2 Kolom */
-  .jadwal-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .search-box {
-    flex-direction: column;
-    width: 100%;
-  }
-  #search-input,
-  #search-button {
-    width: 100%;
-  }
+  .top-info { flex-direction: column; text-align: center; gap: 15px; justify-content: center; }
+  .location-display, .clock-display { text-align: center; flex: none; width: 100%; }
+  .tanggal-group { align-items: center; }
+  .location-display { order: 1; }
+  .analog-clock { order: 2; margin: 15px 0; }
+  .clock-display { order: 3; }
+  .jadwal-cards { grid-template-columns: repeat(2, 1fr); }
+  .search-box { flex-direction: column; width: 100%; }
+  #search-input, #search-button { width: 100%; }
 }
 
-/* Desktop 901px+ (4-3 Centered) */
 @media (min-width: 901px) {
-  /* **SOLUSI PUSAT 4-3:** Gunakan 8 kolom virtual */
-  .jadwal-cards {
-    grid-template-columns: repeat(8, 1fr);
-  }
-
-  /* Baris 1: 4 Kartu (Mengisi 8 kolom secara penuh) */
-  #imsak-card {
-    grid-column: 1 / span 2;
-  }
-  #subuh-card {
-    grid-column: 3 / span 2;
-  }
-  #syuruq-card {
-    grid-column: 5 / span 2;
-  }
-  #dzuhur-card {
-    grid-column: 7 / span 2;
-  }
-
-  /* Baris 2: 3 Kartu (Diposisikan di kolom 2, 4, 6 untuk memusatkan) */
-  #ashar-card {
-    grid-row: 2;
-    grid-column: 2 / span 2;
-    margin: 0;
-  }
-  #maghrib-card {
-    grid-row: 2;
-    grid-column: 4 / span 2;
-    margin: 0;
-  }
-  #isya-card {
-    grid-row: 2;
-    grid-column: 6 / span 2;
-    margin: 0;
-  }
+  .jadwal-cards { grid-template-columns: repeat(8, 1fr); }
+  #imsak-card { grid-column: 1 / span 2; }
+  #subuh-card { grid-column: 3 / span 2; }
+  #syuruq-card { grid-column: 5 / span 2; }
+  #dzuhur-card { grid-column: 7 / span 2; }
+  #ashar-card { grid-row: 2; grid-column: 2 / span 2; }
+  #maghrib-card { grid-row: 2; grid-column: 4 / span 2; }
+  #isya-card { grid-row: 2; grid-column: 6 / span 2; }
 }
 
 @media (max-width: 900px) and (min-width: 769px) {
-  /* Pada tablet landscape, kembalikan ke 3 kolom biasa */
-  .jadwal-cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-  }
-  /* Reset semua penentuan kolom kustom */
-  #imsak-card,
-  #subuh-card,
-  #syuruq-card,
-  #dzuhur-card,
-  #ashar-card,
-  #maghrib-card,
-  #isya-card {
-    grid-row: auto;
-    grid-column: auto;
-    margin: 0;
+  .jadwal-cards { grid-template-columns: repeat(3, 1fr); }
+  #imsak-card, #subuh-card, #syuruq-card, #dzuhur-card, #ashar-card, #maghrib-card, #isya-card {
+    grid-row: auto; grid-column: auto; margin: 0;
   }
 }
 
 @media (max-width: 480px) {
-  /* Pada ponsel, tetap 2 kolom */
-  .jadwal-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .location-feature {
-    flex-direction: column;
-  }
+  .jadwal-cards { grid-template-columns: repeat(2, 1fr); }
+  .location-feature { flex-direction: column; }
 }
