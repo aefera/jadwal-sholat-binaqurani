@@ -1,0 +1,541 @@
+/* Variabel Warna dan Font */
+:root {
+  --primary-blue: #0f4c81;
+  --accent-green: #6aa84f;
+  --accent-blue-light: #187bcd;
+  --text-dark: #333333;
+  --text-light: #f8f9fa;
+  --text-secondary: #6c757d;
+  --bg-light: #f4f8fa;
+  --bg-white: #ffffff;
+  --border-color: #dee2e6;
+
+  /* Gradien yang diperkuat untuk highlight */
+  --next-prayer-gradient: linear-gradient(135deg, #7fb066, #5aa737);
+
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Lato", sans-serif;
+}
+
+/* Reset dan Gaya Dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* -------------------------------------- */
+/* --- BACKGROUND OVERLAY DENGAN BLUR --- */
+/* -------------------------------------- */
+#background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Ganti dengan path gambar Anda */
+  background-image: url("../image/mahjisd.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Terapkan efek blur hanya pada elemen ini */
+  filter: blur(3px);
+
+  /* Pindahkan elemen ini ke lapisan belakang konten */
+  z-index: -1;
+}
+/* -------------------------------------- */
+
+/* Layout Utama: Header, Main, Footer */
+header {
+  background-color: var(--primary-blue);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.navbar-logo {
+  height: 45px;
+  vertical-align: middle;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px 15px;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+}
+
+footer {
+  background-color: #2c3e50;
+  color: var(--text-light);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9em;
+}
+
+/* Bagian Informasi Atas - Tata Letak 3 Kolom */
+.top-info {
+  background-color: var(--bg-white);
+  display: flex;
+  /* Gunakan space-around untuk membagi ruang seimbang antara 3 kolom */
+  justify-content: space-around;
+  align-items: center;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.location-display {
+  /* Bagian Kiri: Lokasi & Tanggal */
+  flex: 1;
+}
+
+#lokasi {
+  font-family: var(--font-heading);
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+/* Styling untuk Grup Tanggal (Masehi & Hijriyah) */
+.tanggal-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#tanggal-masehi {
+  font-family: var(--font-body);
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 3px;
+}
+
+#tanggal-hijriyah {
+  font-family: var(--font-body);
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #8c9297;
+}
+
+.clock-display {
+  /* Bagian Kanan: Jam Digital */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.clock-display #live-clock {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.8em;
+  font-weight: 700;
+  color: var(--primary-blue);
+  /* Hilangkan margin-top, karena sekarang terpisah dari analog */
+}
+
+/* --- JAM ANALOG (Sekarang di tengah-tengah flex container) --- */
+.analog-clock {
+  width: 80px;
+  height: 80px;
+  border: 3px solid var(--primary-blue);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  /* Atur flex agar tidak merentang */
+  flex-shrink: 0;
+}
+
+.center-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary-blue);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 0%;
+  border-radius: 3px;
+}
+
+.hour {
+  width: 30%;
+  height: 4px;
+  background-color: var(--primary-blue);
+  transform: rotate(0deg);
+  margin-left: -2px;
+  margin-top: -2px;
+}
+
+.minute {
+  width: 40%;
+  height: 3px;
+  background-color: var(--primary-blue);
+  transform: rotate(0deg);
+  margin-left: -1.5px;
+  margin-top: -1.5px;
+}
+
+.second {
+  width: 45%;
+  height: 1px;
+  background-color: #e74c3c;
+  transform: rotate(0deg);
+  margin-left: -0.5px;
+  margin-top: -0.5px;
+}
+/* --------------------------------------- */
+
+/* RUNNING TEXT STYLING */
+.running-text-container {
+  background-color: #f7f7f7;
+  color: var(--text-dark);
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+}
+
+.running-text {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 1.1em;
+  padding-left: 100%;
+  animation: scroll-text 30s linear infinite;
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* END OF RUNNING TEXT STYLING */
+
+/* Info Sholat Berikutnya */
+.next-prayer-info {
+  text-align: center;
+  background: var(--next-prayer-gradient);
+  color: var(--bg-white);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 15px rgba(106, 168, 79, 0.3);
+}
+
+.next-prayer-info h2 {
+  font-family: var(--font-heading);
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.next-prayer-info p {
+  font-family: var(--font-heading);
+  font-size: 2.8em;
+  font-weight: 700;
+}
+
+/* Sorotan Hitung Mundur MERAH (Saat 5 menit terakhir) */
+.countdown-near-end {
+  background: linear-gradient(135deg, #e74c3c, #c0392b); /* Merah gelap */
+  box-shadow: 0 6px 15px rgba(231, 76, 60, 0.5);
+}
+
+/* Desain Kartu Jadwal Sholat (LAYOUT 4-3) */
+.jadwal-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  background-color: var(--bg-white);
+  padding: 15px 10px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  font-family: var(--font-heading);
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+
+.card p {
+  font-family: var(--font-heading);
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+/* Sorotan untuk Sholat Berikutnya (Kartu) */
+.next-prayer-highlight {
+  background: var(--next-prayer-gradient);
+  color: var(--bg-white);
+  transform: none;
+  box-shadow: 0 4px 10px rgba(106, 168, 79, 0.5);
+  border-color: var(--accent-green);
+}
+
+.next-prayer-highlight h2 {
+  color: rgba(255, 255, 255, 0.9);
+}
+.next-prayer-highlight p {
+  color: var(--bg-white);
+}
+
+/* Fitur Pencarian */
+.location-feature {
+  background-color: var(--bg-white);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.search-box {
+  display: flex;
+  gap: 5px;
+}
+#search-input {
+  font-family: var(--font-body);
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1em;
+  flex-grow: 1;
+}
+#search-button,
+#detect-location-button {
+  font-family: var(--font-heading);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--bg-white);
+  font-size: 1em;
+  transition: background-color 0.3s;
+  font-weight: 600;
+}
+#search-button {
+  background-color: var(--accent-blue-light);
+}
+#detect-location-button {
+  background-color: var(--accent-green);
+}
+
+#search-button:hover {
+  background-color: #0d6efd;
+}
+#detect-location-button:hover {
+  background-color: #5aa737;
+}
+
+/* Hasil Pencarian */
+.search-results {
+  margin-top: 15px;
+  max-height: 150px;
+  overflow-y: auto;
+  width: 100%;
+}
+.result-item {
+  font-family: var(--font-body);
+  padding: 10px;
+  background-color: #f0f0f0;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.result-item:hover {
+  background-color: #e0e0e0;
+}
+
+/* Desain Responsif */
+
+/* RESPONSIVE TOP INFO FIX */
+@media (max-width: 768px) {
+  .top-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    /* Ubah dari space-around ke flex-start/center pada mobile */
+    justify-content: center;
+  }
+  .location-display,
+  .clock-display {
+    text-align: center;
+    flex: none;
+    width: 100%;
+  }
+  .tanggal-group {
+    align-items: center;
+  }
+  /* Geser Jam Analog kembali di bawah jam digital untuk mobile */
+  .top-info {
+    flex-direction: column;
+    /* Mengatur ulang urutan untuk tampilan vertikal */
+  }
+  .location-display {
+    order: 1;
+  }
+  .analog-clock {
+    order: 2;
+    margin: 15px 0;
+  }
+  .clock-display {
+    order: 3;
+  }
+
+  /* Grid Card 2 Kolom */
+  .jadwal-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .search-box {
+    flex-direction: column;
+    width: 100%;
+  }
+  #search-input,
+  #search-button {
+    width: 100%;
+  }
+}
+
+/* Desktop 901px+ (4-3 Centered) */
+@media (min-width: 901px) {
+  /* **SOLUSI PUSAT 4-3:** Gunakan 8 kolom virtual */
+  .jadwal-cards {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  /* Baris 1: 4 Kartu (Mengisi 8 kolom secara penuh) */
+  #imsak-card {
+    grid-column: 1 / span 2;
+  }
+  #subuh-card {
+    grid-column: 3 / span 2;
+  }
+  #syuruq-card {
+    grid-column: 5 / span 2;
+  }
+  #dzuhur-card {
+    grid-column: 7 / span 2;
+  }
+
+  /* Baris 2: 3 Kartu (Diposisikan di kolom 2, 4, 6 untuk memusatkan) */
+  #ashar-card {
+    grid-row: 2;
+    grid-column: 2 / span 2;
+    margin: 0;
+  }
+  #maghrib-card {
+    grid-row: 2;
+    grid-column: 4 / span 2;
+    margin: 0;
+  }
+  #isya-card {
+    grid-row: 2;
+    grid-column: 6 / span 2;
+    margin: 0;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 769px) {
+  /* Pada tablet landscape, kembalikan ke 3 kolom biasa */
+  .jadwal-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  /* Reset semua penentuan kolom kustom */
+  #imsak-card,
+  #subuh-card,
+  #syuruq-card,
+  #dzuhur-card,
+  #ashar-card,
+  #maghrib-card,
+  #isya-card {
+    grid-row: auto;
+    grid-column: auto;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Pada ponsel, tetap 2 kolom */
+  .jadwal-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .location-feature {
+    flex-direction: column;
+  }
+}

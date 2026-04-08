@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jadwal Sholat - BQ Islamic Boarding School</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="background-overlay"></div>
+
+    <header>
+      <nav>
+        <a href="#" class="logo">
+          <img src="image/bq-logo.png" alt="Logo" class="navbar-logo" />
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="top-info">
+          <div class="location-display">
+            <h1 id="lokasi">Memuat lokasi...</h1>
+            <div class="tanggal-group">
+              <p id="tanggal-masehi">Memuat tanggal Masehi...</p>
+              <p id="tanggal-hijriyah">Memuat tanggal Hijriyah...</p>
+            </div>
+          </div>
+
+          <div class="analog-clock">
+            <div class="hand hour" id="hour-hand"></div>
+            <div class="hand minute" id="minute-hand"></div>
+            <div class="hand second" id="second-hand"></div>
+            <div class="center-dot"></div>
+          </div>
+
+          <div class="clock-display">
+            <p id="live-clock">--:--:--</p>
+          </div>
+        </div>
+
+        <div class="running-text-container">
+          <p class="running-text">Memuat informasi jadwal sholat...</p>
+        </div>
+
+        <div id="next-prayer-info" class="next-prayer-info">
+          <h2>Waktu Sholat Berikutnya</h2>
+          <p>
+            <span id="next-prayer-name">---</span> dalam
+            <span id="countdown-timer">--:--:--</span>
+          </p>
+        </div>
+
+        <div class="jadwal-cards">
+          <div class="card" data-prayer="Imsak" id="imsak-card">
+            <h2>Imsak</h2>
+            <p id="imsak">--:--</p>
+          </div>
+          <div class="card" data-prayer="Subuh" id="subuh-card">
+            <h2>Subuh</h2>
+            <p id="subuh">--:--</p>
+          </div>
+          <div class="card" data-prayer="Syuruq" id="syuruq-card">
+            <h2>Syuruq</h2>
+            <p id="syuruq">--:--</p>
+          </div>
+          <div class="card" data-prayer="Dzuhur" id="dzuhur-card">
+            <h2>Dzuhur</h2>
+            <p id="dzuhur">--:--</p>
+          </div>
+          <div class="card" data-prayer="Ashar" id="ashar-card">
+            <h2>Ashar</h2>
+            <p id="ashar">--:--</p>
+          </div>
+          <div class="card" data-prayer="Maghrib" id="maghrib-card">
+            <h2>Maghrib</h2>
+            <p id="maghrib">--:--</p>
+          </div>
+          <div class="card" data-prayer="Isya" id="isya-card">
+            <h2>Isya</h2>
+            <p id="isya">--:--</p>
+          </div>
+        </div>
+
+        <div class="location-feature">
+          <div class="search-box">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Cari nama kota..."
+            />
+            <button id="search-button">Cari</button>
+          </div>
+          <button id="detect-location-button">Gunakan Lokasi Saat Ini</button>
+        </div>
+        <div id="search-results" class="search-results"></div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 - Fakhri. Data By Kemenag.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
